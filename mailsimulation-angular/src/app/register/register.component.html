@@ -1,0 +1,46 @@
+<div class="col-md-4 offset-md-4 mt-5 card">
+    <div class="card-header" style="background-color: cornflowerblue;">
+        <div class="card-title">
+        <h4 class="text-center">Register Here</h4>
+        </div>
+    </div>
+    <div class="card-body" style="margin-bottom: 20px;">
+        <form action="" #form='ngForm' (ngSubmit)='register(form)'>
+            <div class="form-group">
+            <input type="text" name="name" id="name" #name='ngModel' pattern="[A-Za-z\s]{1,15}$"  title="it should be only alphabates with maxlength 15" size="40"
+                ngModel required class="form-control mb-3" size="4" placeholder="Enter Name...">
+                <div *ngIf="name.touched && name.invalid">
+                    <p *ngIf="name.errors.required" class="text-danger">*name is required</p>
+                    <p class=" alert alert-danger" *ngIf="name.errors.pattern">it should be only alphabates and maxlength 15</p>
+                </div>
+            </div>
+            <div class="form-group">
+            <input type="email" name="email" id="email" #email='ngModel' 
+                ngModel class="form-control mb-3" placeholder="Enter Email..."  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="email should contain @ and dot(.) Eg.,abc@gmail.com" size="30" required>
+            <div *ngIf="email.touched && email.invalid">
+                <p *ngIf="email.errors.required" class="text-danger">*email must required</p>
+                <p class=" alert alert-danger" *ngIf="email.errors.pattern">email should contain lower case letter and @gmail and (.com)</p>
+            </div>
+            </div>
+            <div class="form-group">
+            <input type="password" name="password" id="password" #password='ngModel' 
+            ngModel class="form-control mb-3" placeholder="Enter Password..." pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="must contain atleast one number and one uppercase and one special characters and lowercase letters" required>
+            <div *ngIf="password.touched && password.invalid">
+                <p *ngIf="password.errors.required" class="text-danger">*this field is required</p>
+                <p class="alert alert-danger" *ngIf="password.errors.pattern">must contain atleast one number,one uppercase,one special character and one lowercase letter</p>
+            </div>
+            </div>
+            <div class="form-group">
+                <input type="password" name="confirmpassword" id="confirmpassword" #confirmpassword='ngModel' 
+                ngModel class="form-control mb-3" placeholder="Enter Confirm Password..." pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="must contain atleast one number and one uppercase and one special characters and lowercase letters" required>
+                <div *ngIf="confirmpassword.touched && confirmpassword.invalid">
+                    <p *ngIf="confirmpassword.errors.required" class="text-danger">*this field is required</p>
+                    <p class="alert alert-danger" *ngIf="confirmpassword.errors.pattern">must contain atleast one number,one uppercase,one special character and one lowercase letter</p>
+                </div>
+            </div>
+                <button type="submit" class="btn btn-dark" >Register</button>
+        </form>
+    </div>
+</div>

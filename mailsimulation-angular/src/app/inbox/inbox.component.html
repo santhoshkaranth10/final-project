@@ -1,0 +1,13 @@
+<table class="table book-class table-bordered table-striped table-dark mt-5 mb-5 col-md-8 offset-2">
+    <thead>
+      <tr>
+        <th scope="col">inbox</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let mail of mails'>
+        <td><button class="btn btn-danger" (click)="delete(product)">Delete</button></td>
+      </tr>
+    </tbody>
+</table>
